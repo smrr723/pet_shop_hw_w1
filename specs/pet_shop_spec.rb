@@ -77,64 +77,64 @@ class TestPetShop < Minitest::Test
     assert_equal("Camelot of Pets", name)
   end
 # 1 - simply access admin, total cash value. Git commit each task remember.
-  # def test_total_cash
-  #   sum = total_cash(@pet_shop)
-  #   assert_equal(1000, sum)
-  # end
-# 2 - simply edit total_cash value
-  # def test_add_or_remove_cash__add
-  #   add_or_remove_cash(@pet_shop,10)
-  #   cash = total_cash(@pet_shop)
-  #   assert_equal(1010, cash)
-  # end
+  def test_total_cash
+  sum = total_cash(@pet_shop)
+  assert_equal(1000, sum)
+  end
+  # 2 - simply edit total_cash value
+  def test_add_or_remove_cash__add
+    add_or_remove_cash(@pet_shop,10)
+    cash = total_cash(@pet_shop)
+    assert_equal(1010, cash)
+  end
 # 3 - simply edit total_cash value
-  # def test_add_or_remove_cash__remove
-  #   add_or_remove_cash(@pet_shop,-10)
-  #   cash = total_cash(@pet_shop)
-  #   assert_equal(990, cash)
-  # end
+  def test_add_or_remove_cash__remove
+    add_or_remove_cash(@pet_shop,-10)
+    cash = total_cash(@pet_shop)
+    assert_equal(990, cash)
+  end
 # 4 - simply access pets_sold value
-  # def test_pets_sold
-  #   sold = pets_sold(@pet_shop)
-  #   assert_equal(0, sold)
-  # end
+  def test_pets_sold
+    sold = pets_sold(@pet_shop)
+    assert_equal(0, sold)
+  end
 # 5 - simply edit pets sold value
-  # def test_increase_pets_sold
-  #   increase_pets_sold(@pet_shop,2)
-  #   sold = pets_sold(@pet_shop)
-  #   assert_equal(2, sold)
-  # end
+  def test_increase_pets_sold
+    increase_pets_sold(@pet_shop,2)
+    sold = pets_sold(@pet_shop)
+    assert_equal(2, sold)
+  end
 # 6 - pets array length value
-  # def test_stock_count
-  #   count = stock_count(@pet_shop)
-  #   assert_equal(6, count)
-  # end
-# 7 - seach for quantity of breed type - loop.  .count method?
-  # def test_all_pets_by_breed__found
-  #   pets = pets_by_breed(@pet_shop, "British Shorthair")
-  #   assert_equal(2, pets.count)
-  # end
+  def test_stock_count
+    count = stock_count(@pet_shop)
+    assert_equal(6, count)
+  end
+# 7 - seach for quantity of breed type
+  def test_all_pets_by_breed__found
+    pets = all_pets_by_breed__found(@pet_shop, "British Shorthair")
+    assert_equal(2, pets)
+  end
 # 8 - same as above
-  # def test_all_pets_by_breed__not_found
-  #   pets = pets_by_breed(@pet_shop, "Dalmation")
-  #   assert_equal(0, pets.count)
-  # end
+  def test_all_pets_by_breed__not_found
+    pets = all_pets_by_breed__not_found(@pet_shop, "Dalmation")
+    assert_equal(0, pets)
+  end
 # - 9 search through hash by name and print whole pet hash for a match.
-  # def test_find_pet_by_name__returns_pet
-  #   pet = find_pet_by_name(@pet_shop, "Arthur")
-  #   assert_equal("Arthur", pet[:name])
-  # end
+  def test_find_pet_by_name__returns_pet
+    pet = find_pet_by_name(@pet_shop, "Arthur")
+    assert_equal("Arthur", pet)
+  end
 # - 10 same as above but nil, so end function with return nil
-  # def test_find_pet_by_name__returns_nil
-  #   pet = find_pet_by_name(@pet_shop, "Fred")
-  #   assert_nil(pet)
-  # end
+  def test_find_pet_by_name__returns_nil
+    pet = find_pet_by_name(@pet_shop, "Fred")
+    assert_nil(pet)
+  end
 # - 11 - remove whole hash, by pet name
-  # def test_remove_pet_by_name
-  #   remove_pet_by_name(@pet_shop, "Arthur")
-  #   pet = find_pet_by_name(@pet_shop,"Arthur")
-  #   assert_nil(pet)
-  # end
+  def test_remove_pet_by_name
+    remove_pet_by_name(@pet_shop, "Arthur")
+    pet = find_pet_by_name(@pet_shop,"Arthur")
+    assert_nil(pet)
+  end
 # - 12 - add pet to hash
   # def test_add_pet_to_stock
   #   add_pet_to_stock(@pet_shop, @new_pet)
@@ -146,7 +146,7 @@ class TestPetShop < Minitest::Test
   #   count = customer_pet_count(@customers[0])
   #   assert_equal(0, count)
   # end
-# - 14 - add pet hash to customer pet array, and remove from stock 
+# - 14 - add pet hash to customer pet array, and remove from stock
   # def test_add_pet_to_customer
   #   customer = @customers[0]
   #   add_pet_to_customer(customer, @new_pet)
